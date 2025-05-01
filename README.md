@@ -3,6 +3,16 @@
 # ComfyUI
 **The most powerful and modular visual AI engine and application.**
 
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+.\venv\Scripts\activate
+python main.py
+http://127.0.0.1:8188
+
+Install ComfyUI Manager:
+Run this in your custom_nodes folder:
+git clone https://github.com/ltdrdata/ComfyUI-Manager.git
+Then re-run ComfyUI. You’ll now see a “Manager” tab in the ComfyUI web UI
+
 
 [![Website][website-shield]][website-url]
 [![Dynamic JSON Badge][discord-shield]][discord-url]
