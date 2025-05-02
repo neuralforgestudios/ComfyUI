@@ -3,15 +3,43 @@
 # ComfyUI
 **The most powerful and modular visual AI engine and application.**
 
+## Running
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 .\venv\Scripts\activate
 python main.py
 http://127.0.0.1:8188
 
+### Running Extensions
 Install ComfyUI Manager:
 Run this in your custom_nodes folder:
 git clone https://github.com/ltdrdata/ComfyUI-Manager.git
 Then re-run ComfyUI. You’ll now see a “Manager” tab in the ComfyUI web UI
+
+## Installation
+You have CUDA 12.8 already installed when you got your computer:
+pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
+Install ComfyUI dependencies
+pip install -r requirements.txt
+
+### Installation GPU-optimized extensions
+Microsoft C++ Build Tools (needed to build xformers from source)
+https://visualstudio.microsoft.com/visual-cpp-build-tools/
+✅ MSVC v143 - VS 2022 C++ x64/x86 build tools
+✅ Windows 10 SDK (10.0.19041.0 or newer)
+✅ CMake tools for Windows
+Restart computer
+After restart, open a fresh terminal (PowerShell or CMD), and run:
+cl
+If it prints something like “Microsoft (R) C/C++ Optimizing Compiler”, it’s ready.
+
+pip install triton
+
+Build Xformers from source with new versions of CUDA and pytorch
+pip install ninja cmake
+pip install git+https://github.com/facebookresearch/xformers.git
+After it finishes, run:
+python -c "import xformers; print('xFormers installed successfully!')"
+No errors = success ✅
 
 
 [![Website][website-shield]][website-url]
