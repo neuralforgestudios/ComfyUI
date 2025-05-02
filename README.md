@@ -15,6 +15,26 @@ Run this in your custom_nodes folder:
 git clone https://github.com/ltdrdata/ComfyUI-Manager.git
 Then re-run ComfyUI. You’ll now see a “Manager” tab in the ComfyUI web UI
 
+Needs to skip those without categories.. else you can't run ComfyUI
+custom_nodes\agilly1989_motorway\clone_nodes_in_the_dangerzone\nodes.py
+Change to this:
+for nodeName, nodeClass in nodes.NODE_CLASS_MAPPINGS.items():
+    newNodeName = f"{nodeName}_motorway_edition"
+    
+    # Use getattr with fallback to 'Unknown' or skip if missing
+    category = getattr(nodeClass, "CATEGORY", "Unknown")
+
+    new_class = type(
+        newNodeName,
+        (BaseClass,),
+        {
+            "CATEGORY": f"{BaseClass.CATEGORY}/{category}",
+            "CLONED_NODE": (nodeName, nodeClass),
+        }
+    )
+    NODE_CLASS_MAPPING[newNodeName] = new_class
+
+
 ## Installation
 You have CUDA 12.8 already installed when you got your computer
 Install nightly version of torch:
