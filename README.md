@@ -16,7 +16,8 @@ git clone https://github.com/ltdrdata/ComfyUI-Manager.git
 Then re-run ComfyUI. You’ll now see a “Manager” tab in the ComfyUI web UI
 
 ## Installation
-You have CUDA 12.8 already installed when you got your computer:
+You have CUDA 12.8 already installed when you got your computer
+Install nightly version of torch:
 pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
 Install ComfyUI dependencies
 pip install -r requirements.txt
@@ -31,6 +32,9 @@ Restart computer
 After restart, open a fresh terminal (PowerShell or CMD), and run:
 cl
 If it prints something like “Microsoft (R) C/C++ Optimizing Compiler”, it’s ready.
+
+Install wheel
+pip install setuptools wheel
 
 pip install triton
 
